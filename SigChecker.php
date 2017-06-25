@@ -163,7 +163,7 @@ function SigCheckEditFilterMerged( $editor, $text, &$error, $summary )
 	if ($nosig)
 	{
 	  wfLoadExtensionMessages( 'SigChecker' );
-	  $text = wfMsgWikiHtml('unsignednotice');
+	  $text = wfMessage('unsignednotice')->parse();
 	  $wgOut->addHTML($text);
 		$editor->showEditForm();
 	  return false;

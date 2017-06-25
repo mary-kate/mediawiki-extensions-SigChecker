@@ -22,7 +22,7 @@ class SigCheckerBlacklist {
 	        }
 
 	private static function getBlacklistText( ) {
-		return wfMsgForContent( 'unsigblacklist' );
+		return wfMessage( 'unsigblacklist' )->inContentLanguage()->text();
 	}
 
 	public static function parseBlacklist( $list ) {
