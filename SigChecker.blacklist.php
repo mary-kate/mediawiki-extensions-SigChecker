@@ -6,19 +6,16 @@ class SigCheckerBlacklist {
 
 	public function load() {
 		global $wgMemc;
-		wfProfileIn( __METHOD__ );
 		// Try to find something in the cache
 		$cachedBlacklist = $wgMemc->get( wfMemcKey( 'sigchecker_blacklist_entries' ) );
 		if ( is_array( $cachedBlacklist ) && count( $cachedBlacklist ) > 0 ) {
 			$this->mBlacklist = $cachedBlacklist;
-			wfProfileOut( __METHOD__ );
 			return;
 		}
 
 		$this->mBlacklist = array();
 		$this->mBlacklist = $this->parseBlacklist( $this->getBlacklistText() );
 		$wgMemc->set( wfMemcKey( 'sigchecker_blacklist_entries' ), $this->mBlacklist, 100 );
-		wfProfileOut( __METHOD__ );
 	}
 
 	private static function getBlacklistText( ) {
@@ -26,7 +23,6 @@ class SigCheckerBlacklist {
 	}
 
 	public static function parseBlacklist( $list ) {
-		wfProfileIn( __METHOD__ );
 		$lines = preg_split( "/\r?\n/", $list );
 		$result = array();
 		foreach ( $lines as $line ) {
@@ -37,7 +33,6 @@ class SigCheckerBlacklist {
 			}
 		}
 
-		wfProfileOut( __METHOD__ );
 		return $result;
 	}
 
