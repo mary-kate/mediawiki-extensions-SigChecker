@@ -1,0 +1,8 @@
+{
+	"@metadata": {
+		"authors": []
+	},
+	"sigchecker-desc": "Checks for signatures and forces [[MediaWiki:Unsigblacklist|certain users]] to sign their comments",
+	"unsignednotice": "'''You forgot to sign your comment.''' Please sign using ~~~~",
+	"unsigblacklist": "# These users will be forced to sign their comments\n# Use \"#\" for comments."
+}

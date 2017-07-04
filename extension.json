@@ -1,0 +1,23 @@
+{
+	"name": "SigChecker",
+	"version": "2.0",
+	"author": "[https://mediawiki.org/wiki/User:Nx Nx]",
+	"url": "https://github.com/RationalWiki/mediawiki-extensions-SigChecker",
+	"descriptionmsg": "sigchecker-desc",
+	"license-name": "GPL-2.0+",
+	"type": "other",
+	"AutoloadClasses": {
+		"SigChecker": "SigChecker.class.php",
+		"SigCheckerBlacklist": "SigChecker.blacklist.php"
+	},
+	"MessagesDirs": {
+		"SigChecker": [
+			"i18n"
+		]
+	},
+	"Hooks": {
+		"EditFilterMergedContent": "SigChecker::onEditFilterMergedContent",
+		"PageContentSaveComplete": "SigChecker::onPageContentSaveComplete"
+	},
+	"manifest_version": 1
+}
